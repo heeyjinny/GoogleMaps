@@ -1,13 +1,18 @@
 package com.heeyjinny.googlemaps
 
+import android.graphics.Bitmap
+import android.graphics.drawable.BitmapDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.graphics.drawable.toBitmap
 import androidx.viewbinding.BuildConfig
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.BitmapDescriptor
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
@@ -71,10 +76,22 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         //position(): 마커 좌표 설정
         //title(): 마커 클릭 시 제목 설정
         //snippet(): 마커 클릭 시 정보 설정
+        //icon(BitmapDescriptorFactory.fromResource(리소스위치))
+
+        //비트맵 이미지를 이용해 마커 아이콘 변경
+        //drawable 디렉터리에 PNG이미지 파일 추가
+        //최상단 탭 File - New - Image Asset
+        //벡터이미지는 안되며 .png 나 .jpg만 됨
+
+        //마커 아이콘은 항상 BitmapDescriptor로 설정되며
+        //BitmapDescriptorFactory 클래스의 메서드 중 하나를 사용하여 정의
+        //메서드 중 비트맵 이미지의 리소스 ID를 사용하여 맞춤 마커를 만드는
+        //fromResource(int resourceId) 메서드 사용
         val markerOptions = MarkerOptions()
             .position(LATLNG)
             .title("Seoul City Hall")
             .snippet("위치 좌표: ${(LATLNG.toString())}")
+            .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_car))
         //3-3
         //GoogleMap 객체의 addMarker() 메서드에 MarkerOption 전달
         //지도에 마커 추가됨
@@ -95,14 +112,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         //카메라 포지션을 기준으로 지도의 위치 및 배율이 변경됨
         mMap.moveCamera(cameraUpdate)
 
-        //3-7
-        //비트맵 이미지를 이용해 마커 아이콘 변경
-        //drawable 디렉터리에 PNG이미지 파일 추가
-        //최상단 탭 File - New - Vector Asset - 아이콘 생성
 
 
 
 
 
 
-    }}//MapsActivity
+
+    }
+}//MapsActivity
