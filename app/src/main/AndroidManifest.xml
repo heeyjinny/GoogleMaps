@@ -29,11 +29,6 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="${GOOGLE_MAP_API_KEY}"/>
 
-<!--   *****구글플레이 서비스 버전 번호 추가   -->
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
-
         <activity
             android:name=".MapsActivity"
             android:exported="true"
