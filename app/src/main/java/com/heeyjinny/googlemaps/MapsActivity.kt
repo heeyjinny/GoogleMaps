@@ -1,17 +1,11 @@
 package com.heeyjinny.googlemaps
 
-import android.graphics.Bitmap
-import android.graphics.drawable.BitmapDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.core.graphics.drawable.toBitmap
-import androidx.viewbinding.BuildConfig
-
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.BitmapDescriptor
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
@@ -46,16 +40,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mapFragment.getMapAsync(this)
 
     }
-
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
-     */
 
     //2-3
     //미리 선언된 mMap변수에 GoogleMap을 저장해두면 액티비티 전체에서 맵 사용가능
@@ -112,12 +96,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         //카메라 포지션을 기준으로 지도의 위치 및 배율이 변경됨
         mMap.moveCamera(cameraUpdate)
 
+    }//onMapReady
 
-
-
-
-
-
-
-    }
 }//MapsActivity
